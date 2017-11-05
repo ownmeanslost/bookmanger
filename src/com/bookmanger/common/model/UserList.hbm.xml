@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.bookmanger.common.model.UserList" table="user_list">
+		<id name="user_id" type="string">
+			<column name="user_id" />
+			<generator class="native" />
+		</id>
+		<property name="borrow_num" type="int" length="4" >
+				<column name="borrow_num" >
+                <comment>借阅数量</comment>
+                </column>
+		</property>
+		<property name="return_time" type="date" length="8" >
+				<column name="return_time" >
+                <comment>借阅清单中需归还图书的最近时间</comment>
+                </column>
+		</property>
+		<property name="borrow_listnum1" type="int" length="8" >
+				<column name="borrow_listnum1" >
+                <comment>借阅清单编号</comment>
+                </column>
+		</property>
+		<property name="borrow_listnum2" type="int" length="8" >
+				<column name="borrow_listnum2" >
+                <comment>借阅清单编号</comment>
+                </column>
+		</property>
+		<property name="borrow_listnum3" type="int" length="8" >
+				<column name="borrow_listnum3" >
+                <comment>借阅清单编号</comment>
+                </column>
+		</property>
+		<property name="borrow_listnum4" type="int" length="8" >
+				<column name="borrow_listnum4" >
+                <comment>借阅清单编号</comment>
+                </column>
+		</property>
+		<property name="borrow_listnum5" type="int" length="8" >
+				<column name="borrow_listnum5" >
+                <comment>借阅清单编号</comment>
+                </column>
+		</property>
+	</class>
+</hibernate-mapping>

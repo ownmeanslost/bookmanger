@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.bookmanger.common.model.User" table="user">
+		<id name="user_id" type="string">
+			<column name="user_id" />
+			<generator class="native" />
+		</id>
+		<property name="name" type="string" length="20" >
+				<column name="name" >
+                <comment>名字</comment>
+                </column>
+		</property>
+		<property name="password" type="string" length="8" >
+				<column name="password" >
+                <comment>密码</comment>
+                </column>
+		</property>
+		<property name="sex" type="string" length="8" >
+				<column name="sex" >
+                <comment>性别</comment>
+                </column>
+		</property>
+		<property name="id_num" type="string" length="18" >
+				<column name="id_num" >
+                <comment>身份证</comment>
+                </column>
+		</property>
+	</class>
+</hibernate-mapping>

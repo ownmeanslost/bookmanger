@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	                    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="userDao1" class="com.bookmanger.userpage.dao.impl.UserDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="userService1" class="com.bookmanger.userpage.service.impl.UserServiceImpl"></bean>
+
+	<bean id="userPageBookDao" class="com.bookmanger.userpage.dao.impl.UserPageBookDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="userPageBookService"
+		class="com.bookmanger.userpage.service.impl.UserPageBookServiceImpl"></bean>
+
+	<bean id="userPageBorrowLabDao"
+		class="com.bookmanger.userpage.dao.impl.UserPageBorrowLabDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="userPageBorrowListDao"
+		class="com.bookmanger.userpage.dao.impl.UserPageBorrowListDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+<bean id="userPageUserListDao"
+		class="com.bookmanger.userpage.dao.impl.UserPageUserListDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+</beans>	                    

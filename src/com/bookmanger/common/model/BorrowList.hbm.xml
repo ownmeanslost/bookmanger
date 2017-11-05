@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.bookmanger.common.model.BorrowList" table="borrow_list">
+		<id name="borrow_listnum" type="int">
+			<column name="borrow_listnum" />
+			<generator class="increment" />
+		</id>
+		<property name="user_id" type="string" length="11" >
+				<column name="user_id" >
+                <comment>读者id</comment>
+                </column>
+		</property>
+		<property name="book_id" type="string" length="8" >
+				<column name="book_id" >
+                <comment>ISDN</comment>
+                </column>
+		</property>
+		<property name="borrow_time" type="date" length="8" >
+				<column name="borrow_time" >
+                <comment>借书时间</comment>
+                </column>
+		</property>
+		<property name="return_time" type="date" length="8" >
+				<column name="return_time" >
+                <comment>还书时间</comment>
+                </column>
+		</property>
+	</class>
+</hibernate-mapping>
