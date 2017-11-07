@@ -79,13 +79,14 @@
 				</div>
 			</div>
 			<div class="form-group">
-				<label class="col-xs-2 control-label">目录</label> <img alt="" src=""
+				<label class="col-xs-2 control-label">图片目录</label> <img alt="" src=""
 					class="col-xs-4 img-thumbnail" id="list">
 			</div>
 			<div class="form-group">
 				<label class="col-xs-2 control-label">简介</label>
 				<div class="col-xs-8">
-					<textarea class="form-control" rows="3" id="intruduce" readonly="readonly"></textarea>
+				<div id="intruduce"></div>
+					<!-- <textarea class="form-control" rows="3" id="intruduce" readonly="readonly"></textarea> -->
 				</div>
 
 			</div>

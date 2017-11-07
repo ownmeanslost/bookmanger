@@ -10,4 +10,9 @@ public class HomePageController {
 		
 		return "/homepage/HomePage";
 	}
+	@RequestMapping("/erroPage")
+	public String erroPage(){
+		
+		return "/homepage/erroPage";
+	}
 }

@@ -36,7 +36,7 @@
 					StringLength : {
 						min : 1,
 						max : 8,
-						message : '用户名长度大于6位并且小于30位'
+						message : '密码为1至8位'
 					}
 				}
 			},
@@ -48,7 +48,7 @@
 					StringLength : {
 						min : 1,
 						max : 8,
-						message : '用户名长度大于6位并且小于30位'
+						message : '密码为1至8位'
 					},
 					identical : {
 						field : 'adminPassword',

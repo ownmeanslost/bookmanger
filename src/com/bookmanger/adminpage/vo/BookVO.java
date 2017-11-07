@@ -1,26 +1,17 @@
-package com.bookmanger.common.model;
+package com.bookmanger.adminpage.vo;
 
-import java.util.Date;
-
-public class Book {
+public class BookVO {
 	private String book_id;
 	private String book_name;
 	private String author;
 	private String printer;
 	private String order;
-	private Date print_time;
+	private String print_time;
 	private String list;
 	private String intruduce;
 	private String include;
-	private Date updateTime;
-	private int kucun;
-	
-	public int getKucun() {
-		return kucun;
-	}
-	public void setKucun(int kucun) {
-		this.kucun = kucun;
-	}
+	private String updateTime;
+	private String kucun;
 	public String getBook_id() {
 		return book_id;
 	}
@@ -51,10 +42,10 @@ public class Book {
 	public void setOrder(String order) {
 		this.order = order;
 	}
-	public Date getPrint_time() {
+	public String getPrint_time() {
 		return print_time;
 	}
-	public void setPrint_time(Date print_time) {
+	public void setPrint_time(String print_time) {
 		this.print_time = print_time;
 	}
 	public String getList() {
@@ -75,19 +66,17 @@ public class Book {
 	public void setInclude(String include) {
 		this.include = include;
 	}
-	public Date getUpdateTime() {
+	public String getUpdateTime() {
 		return updateTime;
 	}
-	public void setUpdateTime(Date updateTime) {
+	public void setUpdateTime(String updateTime) {
 		this.updateTime = updateTime;
 	}
-	@Override
-	public String toString() {
-		return "Book [book_id=" + book_id + ", book_name=" + book_name
-				+ ", author=" + author + ", printer=" + printer + ", order="
-				+ order + ", print_time=" + print_time + ", list=" + list
-				+ ", intruduce=" + intruduce + ", include=" + include
-				+ ", updateTime=" + updateTime + "]";
+	public String getKucun() {
+		return kucun;
+	}
+	public void setKucun(String kucun) {
+		this.kucun = kucun;
 	}
 	
 }

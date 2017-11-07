@@ -5,6 +5,7 @@
 		events.updatePasswordClick();
 		events.initUserInfo();
 		events.changeIfram(0);
+		events.QuitAndCancleClick();
 	};
 	// liclick事件
 	events.updatePasswordClick = function() {
@@ -51,6 +52,21 @@
 			}
 
 		});
+	};
+	events.QuitAndCancleClick = function() {
+		$("#quit").click(function() {
+			$(location).attr('href', contextPath + '/Login');
+		});
+		$("#cancle").click(
+				function() {
+					$.get(contextPath + "/UserController/DelUserSeeion",
+							function(result) {
+								if (result == "1") {
+									$(location).attr('href',
+											contextPath + '/Login');
+								}
+							});
+				})
 	};
 	$(events.init);
 })(jQuery);

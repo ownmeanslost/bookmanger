@@ -23,10 +23,10 @@
 					$("#author").attr("value",data.author);
 					$("#printer").attr("value",data.printer);
 					$("#order").attr("value",data.order);
-					$("#intruduce").val(data.intruduce);
+					$("#intruduce").html(data.intruduce);
 					$("#kucun").text(data.kucun);
+					$("#list").attr("src",data.list);
 					
-					/*$("#list").attr("value",data.list);*/
 					
 					
 					

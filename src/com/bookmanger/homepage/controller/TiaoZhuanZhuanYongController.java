@@ -319,10 +319,11 @@ public class TiaoZhuanZhuanYongController {
  */
 	@RequestMapping("/GoToUserPage")
 	public String goToUserPage(HttpSession session) {
-		/*String str=(String) session.getAttribute("user_id");
+		String str=(String) session.getAttribute("user_id");
 		//判断是否登录，未登录不允许进入
 		if(str!=null&&!str.equals("")&&str.length()==11)
 		return "/userpage/UserPage";
-		else*/ return "/adminpage/AdminPage";
+		else
+		return "/adminpage/AdminPage";
 	}
 }

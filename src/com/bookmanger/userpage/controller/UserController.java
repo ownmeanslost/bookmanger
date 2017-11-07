@@ -39,10 +39,14 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/GoToUserInfo")
 	public String goToUserInfo(HttpSession session, Model model) {
-		String user_id = getUserSession(session);
-		User user = userService1.get(user_id);
-		model.addAttribute("user", user);
-		return "userpage/UserInfo";
+			
+			String user_id = getUserSession(session);
+			if(user_id!=null){
+				User user = userService1.get(user_id);
+				model.addAttribute("user", user);
+				return "userpage/UserInfo";
+			}
+			return "/homepage/erro";	
 	}
 
 	/**
@@ -54,10 +58,13 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/UpdatePassword")
 	public String updatePassword(HttpSession session, Model model) {
-		String user_id = getUserSession(session);
-		User user = userService1.get(user_id);
-		model.addAttribute("user", user);
-		return "userpage/UpdatePassword";
+			String user_id = getUserSession(session);
+			if(user_id!=null){
+				User user = userService1.get(user_id);
+				model.addAttribute("user", user);
+				return "userpage/UpdatePassword";
+			}
+			return "/homepage/erro";	
 	}
 
 	/**
@@ -66,21 +73,24 @@ public class UserController {
 	 * @return
 	 */
 	@RequestMapping(value = "/HaveBorrow")
-	public String haveBorrow() {
-
+	public String haveBorrow(HttpSession session) {
+		if(getUserSession(session)!=null)
 		return "userpage/HaveBorrow";
+		return "/homepage/erro";
 	}
 
 	@RequestMapping(value = "/NewsCenter")
-	public String newsCenter() {
-
+	public String newsCenter(HttpSession session) {
+		if(getUserSession(session)!=null)
 		return "userpage/HaveExpire";
+		return "/homepage/erro";
 	}
 
 	@RequestMapping(value = "/BorrowCenter")
-	public String borrowCenter() {
-
+	public String borrowCenter(HttpSession session) {
+		if(getUserSession(session)!=null)
 		return "userpage/BookCheck";
+		return "/homepage/erro";
 	}
 
 	/**
@@ -99,16 +109,21 @@ public class UserController {
 	 * 
 	 * @param session
 	 */
-	public void delUserSession(HttpSession session) {
+	@RequestMapping(value="/DelUserSeeion")
+	@ResponseBody
+	public String delUserSession(HttpSession session) {
 		session.removeAttribute("user_id");
+		return "1";
 	}
-
 	@RequestMapping(value = "/GetUserInfo", method = RequestMethod.POST)
 	@ResponseBody
 	public User getUserInfo(HttpSession session) {
 		String user_id = getUserSession(session);
-		return userService1.get(user_id);
-
+		User user=new User();
+		if(user_id!=null){
+			return userService1.get(user_id);
+		}
+		return user;
 	}
 
 	/**

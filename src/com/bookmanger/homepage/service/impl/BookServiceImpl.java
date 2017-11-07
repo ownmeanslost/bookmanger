@@ -28,7 +28,7 @@ public class BookServiceImpl implements BookService{
 			book.setIntruduce(list.get(0).get("intruduce").toString());
 			book.setKucun(list.get(0).get("kucun").toString());
 			book.setList(list.get(0).get("list").toString());
-			book.setOrder(list.get(0).get("order").toString());
+			book.setOrder(list.get(0).get("book_order").toString());
 			book.setPrint_time(list.get(0).get("print_time").toString());
 			book.setPrinter(list.get(0).get("printer").toString());
 			

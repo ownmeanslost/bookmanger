@@ -37,8 +37,8 @@
 					name="userName" disabled="disabled">
 			</div>
 			<div class="col-xs-4">
-				<input type="button" value="退出" class="btn btn-primary"> <input
-					type="button" value="注销" class="btn btn-primary">
+				<input type="button" value="退出" class="btn btn-primary" id="quit"> <input
+					type="button" value="注销" class="btn btn-primary" id="cancle">
 			</div>
 		</div>
 		</form>

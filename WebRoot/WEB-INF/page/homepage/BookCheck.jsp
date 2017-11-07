@@ -27,15 +27,14 @@
 
 <body>
 	<!-- 精确查询 -->
-	<form class="form-horizontal" role="form"
-		style="background-color: gray;">
+	<form class="form-horizontal" role="form">
 		<div class="form-group">
 			<label class="col-xs-2 control-label">ISDN</label>
 			<div class="col-xs-4">
 				<input type="text" class="form-control" id="ISDN1"
 					placeholder="请输入isdn">
 			</div>
-			<input type="button" value="精确查找" id="jingQueCheck">
+			<input type="button" value="精确查找" id="jingQueCheck" class="btn btn-primary">
 		</div>
 	</form>
 	<!-- 精确查询 -->
@@ -53,8 +52,7 @@
 	<!-- 精确查找框（Modal） -->
 
 	<!--模糊查询  -->
-	<form class="form-horizontal" role="form"
-		style="background-color: gray;">
+	<form class="form-horizontal" role="form">
 		<div class="form-group">
 			<label class="col-xs-2 control-label">图书名</label>
 			<div class="col-xs-4">
@@ -88,7 +86,7 @@
 				</select>
 			</div>
 
-			<input type="button" value="模糊查找" id="moHuCheck">
+			<input type="button" value="模糊查找" id="moHuCheck" class="btn btn-primary">
 		</div>
 	</form>
 	<!--模糊查询  -->

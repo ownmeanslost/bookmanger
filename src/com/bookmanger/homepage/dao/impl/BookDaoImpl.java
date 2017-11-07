@@ -67,7 +67,7 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 				book.setIntruduce(re.getString("intruduce"));
 				book.setKucun(re.getInt("kucun"));
 				book.setList(re.getString("list"));
-				book.setOrder(re.getString("order"));
+				book.setOrder(re.getString("book_order"));
 				book.setPrinter(re.getString("printer"));
 				book.setPrint_time(re.getDate("print_time"));
 				book.setUpdateTime(re.getDate("updateTime"));

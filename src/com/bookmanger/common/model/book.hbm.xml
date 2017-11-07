@@ -5,7 +5,7 @@
 	<class name="com.bookmanger.common.model.Book" table="book">
 		<id name="book_id" type="string">
 			<column name="book_id" />
-			<generator class="native" />
+			<generator class="assigned" />
 		</id>
 		<property name="book_name" type="string" length="20">
 			<column name="book_name">
@@ -23,7 +23,7 @@
 			</column>
 		</property>
 		<property name="order" type="string" length="10">
-			<column name="order">
+			<column name="book_order">
 				<comment>版次</comment>
 			</column>
 		</property>
@@ -42,12 +42,12 @@
 				<comment>介绍</comment>
 			</column>
 		</property>
-		<property name="include" type="string" length="200">
+		<property name="include" type="string">
 			<column name="include">
 				<comment>类别</comment>
 			</column>
 		</property>
-		<property name="updateTime" type="timestamp" length="100">
+		<property name="updateTime" type="timestamp">
 			<column name="updateTime">
 				<comment>类别</comment>
 			</column>

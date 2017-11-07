@@ -60,20 +60,7 @@
 						regexp : /^[1][3-8]+\d{9}$/,
 						message : '请输入正确手机号'
 					}
-				},
-				threshold : 4,// 只有4个字符以上才发送ajax请求
-				remote : {
-					url : contextPath + "/HomePageTiaoZhuan/CheckExist",
-					data : $("#phone").val(),
-					/*
-					 * data: function (validator) { return { phone:
-					 * $("#phone").val(), }; },
-					 */
-					type : 'POST', // 请求方式
-					message : '该手机号名已被使用，请使用其他手机号',
-					delay : 2000
 				}
-
 			},
 			userPassword : {
 				validators : {
@@ -206,17 +193,17 @@
 					loginPassword : $("#loginPassword").val()
 				},
 				success : function(data) {
-					
-					if (data != null) {
-						if (data == "1") {
-								
-							window.location.href=contextPath+"/HomePageTiaoZhuan/GoToUserPage";
+						if (data == "1"|| data=="2") {
+							$(location).attr('href', contextPath + '/HomePageTiaoZhuan/GoToUserPage');
+							 /*$.get(contextPath + "/HomePageTiaoZhuan/GoToUserPage");*/
+							
 						} else {
 							alert("账号密码错误");
 						}
-					}
 				}
 			});
+				return false;
+				//这个return很重要，ajax+submit+同步时，如果ajax里面有跳转会先执行ajax跳转，在执行submit,这是页面会调回来
 		});
 	};
 	// 登录点击事件

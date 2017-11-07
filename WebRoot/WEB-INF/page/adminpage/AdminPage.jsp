@@ -37,8 +37,8 @@
 					name="userName" disabled="disabled">
 			</div>
 			<div class="col-xs-4">
-				<input type="button" value="退出" class="btn btn-primary"> <input
-					type="button" value="注销" class="btn btn-primary">
+				<input type="button" value="退出" class="btn btn-primary" id="quit"> <input
+					type="button" value="注销" class="btn btn-primary" id="cancle">
 			</div>
 		</div>
 		</form>
@@ -53,7 +53,7 @@
 
 		<div class="col-xs-14">
 			<iframe src="AdminController/GoToAdminInfo" id="iframepage"
-				frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+				frameborder="0"  marginheight="0" marginwidth="0"
 				class="col-xs-9"></iframe>
 		</div>
 	</div>

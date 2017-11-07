@@ -5,7 +5,7 @@
 	<class name="com.bookmanger.common.model.Borrow_lab" table="borrow_lab">
 		<id name="bookid" type="string">
 			<column name="book_id" />
-			<generator class="native" />
+			<generator class="assigned" />
 		</id>
 		<property name="kucun" type="int" length="4" >
 				<column name="kucun" >

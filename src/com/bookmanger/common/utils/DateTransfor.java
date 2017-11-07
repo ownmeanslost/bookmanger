@@ -1,5 +1,6 @@
 package com.bookmanger.common.utils;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -94,5 +95,18 @@ public class DateTransfor {
 	public static java.sql.Date getNowDateAsDate(){
 		return new java.sql.Date(new Date().getTime());
 	}
-	
+	/**
+	 * string 转date
+	 * @param str
+	 * @return
+	 */
+	public static java.sql.Date stringToDate(String str){
+		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+		
+		try {
+			return new java.sql.Date(df.parse(str).getTime());
+		} catch (ParseException e) {
+			return null;
+		}
+	}
 }

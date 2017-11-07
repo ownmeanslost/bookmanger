@@ -78,6 +78,10 @@ public abstract class BaseDaoImpl<T> extends HibernateDaoSupport implements
 		this.getHibernateTemplate().update(entity);
 	}
 
+	@Override
+	public void delete(T entity) {
+		this.getHibernateTemplate().delete(entity);	
+	}
 	// 分页查找
 	@SuppressWarnings({ "unchecked", "deprecation", "rawtypes" })
 	@Override

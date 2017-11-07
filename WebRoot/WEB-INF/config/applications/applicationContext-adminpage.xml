@@ -8,4 +8,18 @@
 		<property name="hibernateTemplate" ref="hibernateTemplate" />
 	</bean>
 	<bean id="adminPageAdminService" class="com.bookmanger.adminpage.service.impl.AdminPageAdminServiceImpl"></bean>
+	<bean id="adminPageBookDao" class="com.bookmanger.adminpage.dao.impl.AdminPageBookDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="adminPageBookService" class="com.bookmanger.adminpage.service.impl.AdminPageBookServiceImpl"></bean>
+	
+	<bean id="adminPageBorrow_labDao" class="com.bookmanger.adminpage.dao.impl.AdminPageBorrow_labDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="adminPageBorrow_labService" class="com.bookmanger.adminpage.service.impl.AdminPageBorrow_labServiceImpl"></bean>
+	
+	<bean id="adminPageUserDao" class="com.bookmanger.adminpage.dao.impl.AdminPageUserDaoImpl">
+		<property name="hibernateTemplate" ref="hibernateTemplate" />
+	</bean>
+	<bean id="adminPageUserService" class="com.bookmanger.adminpage.service.impl.AdminPageUserServiceImpl"></bean>
 </beans>	                    

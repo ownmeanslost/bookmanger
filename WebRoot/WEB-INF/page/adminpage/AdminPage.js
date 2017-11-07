@@ -5,6 +5,7 @@
 		events.updatePasswordClick();
 		events.initUserInfo();
 		events.changeIfram(0);
+		events.QuitAndCancleClick();
 	};
 	// liclick事件
 	events.updatePasswordClick = function() {
@@ -24,13 +25,16 @@
 			myfaram.attr("src", contextPath + "/AdminController/GoToAdminInfo");
 			break;
 		case 1:
-			myfaram.attr("src", contextPath + "/AdminController/GoToBookRegister");
+			myfaram.attr("src", contextPath
+					+ "/AdminController/GoToBookRegister");
 			break;
 		case 2:
 			myfaram.attr("src", contextPath + "/AdminController/GoToUserInfo");
 			break;
 		case 3:
-			myfaram.attr("src", contextPath + "/AdminController/GoToNewsCenter");
+			myfaram
+					.attr("src", contextPath
+							+ "/AdminController/GoToNewsCenter");
 			break;
 		default:
 			break;
@@ -48,6 +52,22 @@
 			}
 
 		});
+	};
+
+	events.QuitAndCancleClick = function() {
+		$("#quit").click(function() {
+			$(location).attr('href', contextPath + '/Login');
+		});
+		$("#cancle").click(
+				function() {
+					$.get(contextPath + "/AdminController/DelUserSeeion",
+							function(result) {
+								if (result == "1") {
+									$(location).attr('href',
+											contextPath + '/Login');
+								}
+							});
+				})
 	};
 	$(events.init);
 })(jQuery);

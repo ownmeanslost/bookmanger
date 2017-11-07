@@ -30,7 +30,7 @@ CREATE TABLE `administer` (
 -- ----------------------------
 -- Records of administer
 -- ----------------------------
-INSERT INTO `administer` VALUES ('123456', '宋江', '111', '42028119940918131X');
+INSERT INTO `administer` VALUES ('1234567', '宋江', '111', '42028119940918131X');
 
 -- ----------------------------
 -- Table structure for book
@@ -41,7 +41,7 @@ CREATE TABLE `book` (
   `book_name` varchar(20) DEFAULT NULL COMMENT '书名',
   `author` varchar(20) DEFAULT NULL COMMENT '作者',
   `printer` varchar(20) DEFAULT NULL COMMENT '出版社',
-  `order` varchar(10) DEFAULT NULL COMMENT '版次',
+  `book_order` varchar(10) DEFAULT NULL COMMENT '版次',
   `print_time` date DEFAULT NULL COMMENT '出版时间',
   `list` varchar(255) DEFAULT NULL COMMENT '目录',
   `intruduce` varchar(200) DEFAULT NULL,
@@ -53,12 +53,8 @@ CREATE TABLE `book` (
 -- ----------------------------
 -- Records of book
 -- ----------------------------
+INSERT INTO `book` VALUES ('11111111', 'ss', 'SS', 'SS', 'SS', '2017-11-06', 'F:\\tomcat\\apache-tomcat-8.5.14\\webapps\\bookmanger\\WEB-INF\\file\\bookpicture\\11111111.jpg', '<p>DD</p>', '计算机类', '2017-11-06 18:42:16');
 INSERT INTO `book` VALUES ('1212', '高数1', '123', '213', '3123', '2017-10-17', '1231', '12321', '计算机类', '2017-10-04 23:37:28');
-INSERT INTO `book` VALUES ('123', '高数2', '哈哈', '哈哈', '哈哈', '2017-10-13', 'qwe', '的撒胡会撒谎对安徽四殴打户撒函数的还回答是U盾哈斯湖大随后对按时杜哈us和hiU盾哈是对阿水大事u', '计算机类', '2017-10-13 21:50:11');
-INSERT INTO `book` VALUES ('123321', '高数3', '2312', '123', '123', '2017-10-17', '123', '123', '计算机类', '2017-10-05 23:37:32');
-INSERT INTO `book` VALUES ('1234', '高数4', '132', '123', '123', '2017-10-17', '123', '123', '计算机类', '2017-10-06 23:37:35');
-INSERT INTO `book` VALUES ('12345', '高数5', '23', '123', '123', '2017-10-17', '123', '123', '计算机类', '2017-10-07 23:37:38');
-INSERT INTO `book` VALUES ('123451', '高数6', '123', '123', '123', '2017-10-17', '123', '13', '计算机类', '2017-10-08 23:37:43');
 
 -- ----------------------------
 -- Table structure for borrow_lab
@@ -74,6 +70,7 @@ CREATE TABLE `borrow_lab` (
 -- ----------------------------
 -- Records of borrow_lab
 -- ----------------------------
+INSERT INTO `borrow_lab` VALUES ('11111111', '10', null);
 INSERT INTO `borrow_lab` VALUES ('1212', '9', null);
 INSERT INTO `borrow_lab` VALUES ('123', '9', null);
 INSERT INTO `borrow_lab` VALUES ('123321', '9', null);
@@ -94,18 +91,17 @@ CREATE TABLE `borrow_list` (
   PRIMARY KEY (`borrow_listnum`),
   KEY `User_ID` (`user_id`),
   KEY `Book_ID` (`book_id`),
-  CONSTRAINT `borrow_list_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `borrow_list_ibfk_2` FOREIGN KEY (`Book_ID`) REFERENCES `book` (`Book_ID`) ON DELETE SET NULL ON UPDATE CASCADE
+  CONSTRAINT `borrow_list_ibfk_1` FOREIGN KEY (`User_ID`) REFERENCES `user` (`User_ID`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of borrow_list
 -- ----------------------------
-INSERT INTO `borrow_list` VALUES ('1', '13667108218', '123', '2017-11-05', '2017-11-20');
-INSERT INTO `borrow_list` VALUES ('2', '13667108218', '1212', '2017-11-05', '2017-11-20');
+INSERT INTO `borrow_list` VALUES ('1', '13667108218', '123', '2017-11-05', '2017-11-06');
+INSERT INTO `borrow_list` VALUES ('2', '13667108218', '1212', '2017-11-05', '2017-11-06');
 INSERT INTO `borrow_list` VALUES ('3', '13667108218', '123321', '2017-11-05', '2017-11-20');
 INSERT INTO `borrow_list` VALUES ('4', '13667108218', '12345', '2017-11-05', '2017-11-20');
-INSERT INTO `borrow_list` VALUES ('5', '13667108218', '1234', '2017-11-05', '2017-11-20');
+INSERT INTO `borrow_list` VALUES ('5', '13667108218', '123451', '2017-11-05', '2017-11-20');
 
 -- ----------------------------
 -- Table structure for bulletin
@@ -199,11 +195,12 @@ CREATE TABLE `user_list` (
   KEY `Borrow_listnum3` (`borrow_listnum3`),
   KEY `Borrow_listnum4` (`borrow_listnum4`),
   KEY `Borrow_listnum5` (`borrow_listnum5`),
+  CONSTRAINT `user_list_ibfk_6` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`) ON UPDATE NO ACTION,
   CONSTRAINT `user_list_ibfk_1` FOREIGN KEY (`Borrow_listnum1`) REFERENCES `borrow_list` (`Borrow_listnum`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `user_list_ibfk_2` FOREIGN KEY (`Borrow_listnum2`) REFERENCES `borrow_list` (`Borrow_listnum`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `user_list_ibfk_3` FOREIGN KEY (`Borrow_listnum3`) REFERENCES `borrow_list` (`Borrow_listnum`) ON DELETE SET NULL ON UPDATE CASCADE,
   CONSTRAINT `user_list_ibfk_4` FOREIGN KEY (`Borrow_listnum4`) REFERENCES `borrow_list` (`Borrow_listnum`) ON DELETE SET NULL ON UPDATE CASCADE,
-  CONSTRAINT `user_list_ibfk_5` FOREIGN KEY (`Borrow_listnum5`) REFERENCES `borrow_list` (`Borrow_listnum`) ON DELETE SET NULL ON UPDATE CASCADE
+  CONSTRAINT `user_list_ibfk_5` FOREIGN KEY (`borrow_listnum5`) REFERENCES `borrow_list` (`borrow_listnum`) ON DELETE SET NULL ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- ----------------------------
