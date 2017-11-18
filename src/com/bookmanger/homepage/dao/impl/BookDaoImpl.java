@@ -12,9 +12,11 @@ import org.springframework.jdbc.core.RowMapper;
 
 import com.bookmanger.common.dao.impl.BaseDaoImpl;
 import com.bookmanger.common.model.Book;
+import com.bookmanger.common.utils.DateTransfor;
 import com.bookmanger.common.utils.PaginationResponse;
 import com.bookmanger.common.utils.QueryCondition;
 import com.bookmanger.homepage.dao.BookDao;
+import com.bookmanger.homepage.vo.HaveBorrowVO;
 
 public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 
@@ -42,15 +44,18 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 	@Override
 	public PaginationResponse<Book> getByPage(int pageNumber, int pageSize,
 			List<QueryCondition> cons) {
-		String strSql = "select s1.*,IFNULL(s2.kucun,0) kucun from book s1  LEFT JOIN borrow_lab s2 on s2.book_id=s1.book_id where ";
+		String strSql = "select s1.*,IFNULL(s2.kucun,0) kucun from book s1  LEFT JOIN borrow_lab s2 on s2.book_id=s1.book_id";
 		String countSql = "select count(*) from " + getTableName();
 		// 总数
 		int total = jdbcTemplate.queryForInt(countSql);
-
-		for (int i = 0; i < cons.size() - 1; i++) {
-			strSql += cons.get(i).toString() + " and ";
+		if(cons.size()>0){
+			strSql+=" where ";
+			for (int i = 0; i < cons.size() - 1; i++) {
+				strSql += cons.get(i).toString() + " and ";
+			}
+			strSql += cons.get(cons.size() - 1).toString();
 		}
-		strSql += cons.get(cons.size() - 1).toString();
+		strSql+=" order by updateTime";
 		int endIndex = pageNumber + pageSize;
 		strSql += " limit " + pageNumber + " , " + endIndex;
 
@@ -81,4 +86,36 @@ public class BookDaoImpl extends BaseDaoImpl<Book> implements BookDao {
 		return result;
 	}
 
+	@Override
+	public PaginationResponse<HaveBorrowVO> getHaveBorrow(
+			List<QueryCondition> cons,int pageNumber, int pageSize) {
+
+		PaginationResponse<HaveBorrowVO> result = new PaginationResponse<>();
+		StringBuffer strSql=new StringBuffer();
+		strSql.append("SELECT s2.*,s3.book_name FROM	book s3,borrow_list s2  LEFT JOIN user_list s1 ON (	s1.user_id = s2.user_id	AND s1.Borrow_listnum1 = s2.borrow_listnum	OR s1.Borrow_listnum2 = s2.borrow_listnum	OR s1.Borrow_listnum3 = s2.borrow_listnum	OR s1.Borrow_listnum4 = s2.borrow_listnum	OR s1.Borrow_listnum5 = s2.borrow_listnum ) WHERE s3.book_id=s2.book_id and s1.user_id=s2.user_id");
+		int endIndex = pageNumber + pageSize;
+		strSql.append(" limit " + pageNumber + " , " + endIndex);
+		String countSql ="select count(*) count FROM	book s3,borrow_list s2  LEFT JOIN user_list s1 ON (	s1.user_id = s2.user_id	AND s1.Borrow_listnum1 = s2.borrow_listnum	OR s1.Borrow_listnum2 = s2.borrow_listnum	OR s1.Borrow_listnum3 = s2.borrow_listnum	OR s1.Borrow_listnum4 = s2.borrow_listnum	OR s1.Borrow_listnum5 = s2.borrow_listnum ) WHERE s3.book_id=s2.book_id and s1.user_id=s2.user_id";
+		int total = jdbcTemplate.queryForInt(countSql);
+		List<Map<String, Object>> list = jdbcTemplate.queryForList(strSql.toString());
+		result.setTotal(total);
+		List<HaveBorrowVO> listh = new ArrayList<>();
+		HaveBorrowVO ha = null;
+		String str = DateTransfor.getNowDate();
+		for (Map<String, Object> map : list) {
+			ha = new HaveBorrowVO();
+			ha.setIsdn((String) map.get("book_id"));
+			ha.setBookName((String) map.get("book_name"));
+			ha.setReturn_time(map.get("return_time").toString());
+			ha.setRemainingTime(DateTransfor.timeXiangJian(
+					map.get("return_time").toString(), str));
+			ha.setBook_id((String) map.get("book_id"));
+			ha.setUser_id((String) map.get("user_id"));
+			listh.add(ha);
+		}
+		result.setRows(listh);
+		return result;
+	}
+
+	
 }

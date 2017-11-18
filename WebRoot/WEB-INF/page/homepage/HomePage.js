@@ -190,15 +190,17 @@
 				url : contextPath + '/HomePageTiaoZhuan/LoginYanZheng',
 				data : {
 					user_id : $("#loginName").val(),
-					loginPassword : $("#loginPassword").val()
+					loginPassword : $("#loginPassword").val().toLowerCase()
 				},
 				success : function(data) {
 						if (data == "1"|| data=="2") {
 							$(location).attr('href', contextPath + '/HomePageTiaoZhuan/GoToUserPage');
-							 /*$.get(contextPath + "/HomePageTiaoZhuan/GoToUserPage");*/
 							
 						} else {
-							alert("账号密码错误");
+							var result=confirm("账号或者密码错误！");
+							$("#loginYanZhengMa").val('');
+							$("#nima").data('bootstrapValidator').resetForm();
+							events.initImg();
 						}
 				}
 			});

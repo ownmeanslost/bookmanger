@@ -206,7 +206,6 @@ public class AdminController {
 	Map<String, String> loadPicture(String id,
 			MultipartHttpServletRequest request,
 			@RequestParam MultipartFile[] inputfile) {
-		System.out.println(id);
 		String pictureurl = UploadFileUtils.uploadImage(request, inputfile[0],
 				id);
 		if (pictureurl != null && pictureurl.length() > 0) {

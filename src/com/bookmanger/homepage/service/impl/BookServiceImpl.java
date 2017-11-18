@@ -11,6 +11,7 @@ import com.bookmanger.common.utils.QueryCondition;
 import com.bookmanger.homepage.dao.BookDao;
 import com.bookmanger.homepage.service.BookService;
 import com.bookmanger.homepage.vo.BookVO;
+import com.bookmanger.homepage.vo.HaveBorrowVO;
 
 public class BookServiceImpl implements BookService{
 
@@ -41,6 +42,22 @@ public class BookServiceImpl implements BookService{
 		return bookDao.getByPage(Integer.parseInt(pageNumber),Integer.parseInt(pageSize), cons);
 		
 		
+	}
+
+	@Override
+	public PaginationResponse<HaveBorrowVO> getHaveExpire(
+			List<QueryCondition> cons,String pageNumber, String pageSize) {
+		PaginationResponse<HaveBorrowVO> pa=bookDao.getHaveBorrow(cons,Integer.parseInt(pageNumber),Integer.parseInt(pageSize));
+		// 删除借阅天数大于等于0的
+		for (int i = 0; i < pa.getRows().size(); i++) {
+			if (Integer.parseInt((pa.getRows().get(i).getRemainingTime())) >= 0) {
+				pa.getRows().remove(i);
+				i = i - 1;
+				pa.setTotal(pa.getTotal() - 1);
+			}
+
+		}
+		return pa;
 	}
 	
 }

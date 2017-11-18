@@ -41,9 +41,12 @@
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-xs-12">
-							<ul class="demo1 list-unstyled" id="demo1">
 
-							</ul>
+							<table id="advice_" class="table"></table>
+							<div id="toolbar">
+								<input type="button" class="btn btn-primary jieYue" value="使用手册"
+									id="moHuJieYue">
+							</div>
 						</div>
 					</div>
 				</div>
@@ -61,13 +64,13 @@
 					<div class="row">
 						<div class="col-xs-12">
 							<ul class="demo2 list-unstyled" id="demo2">
-							
+
 							</ul>
 						</div>
 					</div>
 				</div>
 				<div class="panel-footer">
-					 <div id="example2"></div> 
+					<div id="example2"></div>
 				</div>
 			</div>
 		</div>
@@ -78,9 +81,9 @@
 				<div class="panel-body">
 					<div class="row">
 						<div class="col-xs-12">
-							<ul class="demo3 list-unstyled" id="demo3">
 
-							</ul>
+							<div class="row" id="demo3">
+							</div>
 						</div>
 					</div>
 				</div>

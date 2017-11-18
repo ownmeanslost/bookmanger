@@ -28,7 +28,7 @@ public class AdminPageBookDaoImpl extends BaseDaoImpl<Book> implements AdminPage
 			List<QueryCondition> cons) {
 
 		PaginationResponse<HaveBorrowVO> result = new PaginationResponse<>();
-		String strSql = "SELECT s2.*,s3.book_name FROM	book s3,borrow_list s2  LEFT JOIN user_list s1 ON (	s1.user_id = s2.user_id	AND s1.Borrow_listnum1 = s2.borrow_listnum	OR s1.Borrow_listnum2 = s2.borrow_listnum	OR s1.Borrow_listnum3 = s2.borrow_listnum	OR s1.Borrow_listnum4 = s2.borrow_listnum	OR s1.Borrow_listnum5 = s2.borrow_listnum ) WHERE s3.book_id=s2.book_id";
+		String strSql = "SELECT s2.*,s3.book_name FROM	book s3,borrow_list s2  LEFT JOIN user_list s1 ON (	s1.user_id = s2.user_id	AND s1.Borrow_listnum1 = s2.borrow_listnum	OR s1.Borrow_listnum2 = s2.borrow_listnum	OR s1.Borrow_listnum3 = s2.borrow_listnum	OR s1.Borrow_listnum4 = s2.borrow_listnum	OR s1.Borrow_listnum5 = s2.borrow_listnum ) WHERE s3.book_id=s2.book_id and s1.user_id=s2.user_id";
 		List<Map<String, Object>> list = jdbcTemplate.queryForList(strSql);
 		result.setTotal(list.size());
 		List<HaveBorrowVO> listh = new ArrayList<>();

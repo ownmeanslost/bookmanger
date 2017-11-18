@@ -30,6 +30,7 @@ import com.bookmanger.homepage.service.BulletinService;
 import com.bookmanger.homepage.service.NewsService;
 import com.bookmanger.homepage.service.UserService;
 import com.bookmanger.homepage.vo.BookVO;
+import com.bookmanger.homepage.vo.HaveBorrowVO;
 import com.bookmanger.homepage.vo.MohuCheckConditoonVO;
 import com.bookmanger.homepage.vo.UserVO;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -60,7 +61,26 @@ public class TiaoZhuanZhuanYongController {
 
 		return "/homepage/BookCheck";
 	}
-
+	/**
+	 * 新闻内容
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping(value="/GoToNewsContent")
+	public String goToNewsContent(Model model,String guid){
+		News news=newsService.get(guid);
+		model.addAttribute("news", news);
+		return "/homepage/NewsContent";
+		
+	}
+	@RequestMapping(value="/GoToBookInfo")
+	public String goToBookInfo(Model model,String ISDN){
+		if (ISDN != null && !ISDN.equals("")) {
+			model.addAttribute("ISDN", ISDN);
+		}
+		return "/homepage/BookInfo";
+		
+	}
 	@RequestMapping("/JingQueCheck")
 	public String goToJingQueCheck(HttpServletRequest request, Model model) {
 		String ISDN = request.getParameter("ISDN");
@@ -201,13 +221,17 @@ public class TiaoZhuanZhuanYongController {
 	 */
 	@RequestMapping(value = "/BulletinFenYe", method = RequestMethod.POST)
 	@ResponseBody
-	public PaginationResponse<Bulletin> otherFenYe(String id) {
-		String pageNumber = ((Integer.parseInt(id) - 1) * 5 + 1) + "";// 从哪一条开始
-																		// 公告从第二条开始算起
-		String pageSize = "5";// 一次五条数据
+	public PaginationResponse<HaveBorrowVO> otherFenYe(HttpServletRequest request) {
+		String pageNumber = request.getParameter("offset");
+		String pageSize = request.getParameter("limit");
+		if (pageNumber == null) {
+			pageNumber = "0";
+		}
+		if (pageSize == null) {
+			pageSize = "5";
+		}
 		List<QueryCondition> cons = new ArrayList<QueryCondition>();
-
-		return bulletinService.getOtherList(pageNumber, pageSize, cons);
+		return bookService.getHaveExpire(cons,pageNumber,pageSize);
 	}
 
 	/**
@@ -234,11 +258,11 @@ public class TiaoZhuanZhuanYongController {
 	 */
 	@RequestMapping(value = "/NewBooksFenYe", method = RequestMethod.POST)
 	@ResponseBody
-	public PaginationResponse<Bulletin> newBooksFenYe(String id) {
-		String pageNumber = ((Integer.parseInt(id) - 1) * 5) + "";// 从哪一条开始
-		String pageSize = "5";// 一次五条数据
+	public PaginationResponse<Book> newBooksFenYe(String id) {
+		String pageNumber = ((Integer.parseInt(id) - 1) * 12) + "";// 从哪一条开始
+		String pageSize = "12";// 一次12条数据
 		List<QueryCondition> cons = new ArrayList<QueryCondition>();
-		return bulletinService.getOtherList(pageNumber, pageSize, cons);
+		return bookService.getBookList(pageNumber, pageSize, cons);
 	}
 
 	/**

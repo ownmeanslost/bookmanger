@@ -3,10 +3,11 @@ package com.bookmanger.homepage.service;
 import java.util.List;
 
 import com.bookmanger.common.model.News;
+import com.bookmanger.common.service.BaseDaoService;
 import com.bookmanger.common.utils.PaginationResponse;
 import com.bookmanger.common.utils.QueryCondition;
 
-public interface NewsService {
+public interface NewsService extends BaseDaoService<News>{
 	/**
 	 * 分页
 	 * @param pageNumber
