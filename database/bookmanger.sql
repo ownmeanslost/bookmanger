@@ -30,7 +30,6 @@ CREATE TABLE `administer` (
 -- ----------------------------
 -- Records of administer
 -- ----------------------------
-INSERT INTO `administer` VALUES ('1234567', '宋江', '111', '42028119940918131X');
 
 -- ----------------------------
 -- Table structure for book
@@ -53,8 +52,6 @@ CREATE TABLE `book` (
 -- ----------------------------
 -- Records of book
 -- ----------------------------
-INSERT INTO `book` VALUES ('11111111', 'ss', 'SS', 'SS', 'SS', '2017-11-06', 'F:\\tomcat\\apache-tomcat-8.5.14\\webapps\\bookmanger\\WEB-INF\\file\\bookpicture\\11111111.jpg', '<p>DD</p>', '计算机类', '2017-11-06 18:42:16');
-INSERT INTO `book` VALUES ('1212', '高数1', '123', '213', '3123', '2017-10-17', '1231', '12321', '计算机类', '2017-10-04 23:37:28');
 
 -- ----------------------------
 -- Table structure for borrow_lab
@@ -70,13 +67,6 @@ CREATE TABLE `borrow_lab` (
 -- ----------------------------
 -- Records of borrow_lab
 -- ----------------------------
-INSERT INTO `borrow_lab` VALUES ('11111111', '10', null);
-INSERT INTO `borrow_lab` VALUES ('1212', '9', null);
-INSERT INTO `borrow_lab` VALUES ('123', '9', null);
-INSERT INTO `borrow_lab` VALUES ('123321', '9', null);
-INSERT INTO `borrow_lab` VALUES ('1234', '9', null);
-INSERT INTO `borrow_lab` VALUES ('12345', '9', null);
-INSERT INTO `borrow_lab` VALUES ('123451', '10', null);
 
 -- ----------------------------
 -- Table structure for borrow_list
@@ -97,12 +87,6 @@ CREATE TABLE `borrow_list` (
 -- ----------------------------
 -- Records of borrow_list
 -- ----------------------------
-INSERT INTO `borrow_list` VALUES ('1', '13667108218', '123', '2017-11-05', '2017-11-06');
-INSERT INTO `borrow_list` VALUES ('2', '13667108218', '1212', '2017-11-05', '2017-11-06');
-INSERT INTO `borrow_list` VALUES ('3', '13667108218', '123321', '2017-11-05', '2017-11-20');
-INSERT INTO `borrow_list` VALUES ('4', '13667108218', '12345', '2017-11-05', '2017-11-20');
-INSERT INTO `borrow_list` VALUES ('5', '13667108218', '123451', '2017-11-05', '2017-11-20');
-
 -- ----------------------------
 -- Table structure for bulletin
 -- ----------------------------
@@ -116,13 +100,6 @@ CREATE TABLE `bulletin` (
 -- ----------------------------
 -- Records of bulletin
 -- ----------------------------
-INSERT INTO `bulletin` VALUES ('123', '大叔大婶大所多所');
-INSERT INTO `bulletin` VALUES ('1234', '的埃文斯的冯绍峰似懂非懂算法的');
-INSERT INTO `bulletin` VALUES ('12312', '股后端死鬼');
-INSERT INTO `bulletin` VALUES ('213123', '打色奥二群翁');
-INSERT INTO `bulletin` VALUES ('123123', '娃儿无群二群翁群无');
-INSERT INTO `bulletin` VALUES ('2132', '恶趣味无群二无');
-
 -- ----------------------------
 -- Table structure for c3p0testtable
 -- ----------------------------
@@ -174,8 +151,6 @@ CREATE TABLE `user` (
 -- ----------------------------
 -- Records of user
 -- ----------------------------
-INSERT INTO `user` VALUES ('13667108218', '张飞', '111', '男', '42028119940918131X');
-
 -- ----------------------------
 -- Table structure for user_list
 -- ----------------------------
@@ -206,4 +181,3 @@ CREATE TABLE `user_list` (
 -- ----------------------------
 -- Records of user_list
 -- ----------------------------
-INSERT INTO `user_list` VALUES ('13667108218', '5', null, '1', '2', '3', '4', '5');

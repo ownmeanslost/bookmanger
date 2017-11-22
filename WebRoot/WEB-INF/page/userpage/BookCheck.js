@@ -29,7 +29,7 @@
 			sidePagination : "server",
 			pageNumber : 1,
 			pageSize : 5,
-			/* pageList : [ 5, 10, 15, 20 ], */
+			pageList : [ 5, 10, 15, 20 ], 
 			strictSearch : true,
 			showColumns : true,
 			showRefresh : true,

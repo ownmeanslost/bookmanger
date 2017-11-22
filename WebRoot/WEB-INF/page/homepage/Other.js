@@ -61,7 +61,7 @@
 						},// 点击事件，用于通过Ajax来刷新整个list列表
 						onPageClicked: function (event, originalEvent, type, page) { 
 							$.ajax({ 
-								url: contextPath + path, 
+								url : contextPath + '/HomePageTiaoZhuan/NewBooksFenYe',
 								type: "Post",
 								data: "id=" + page,
 								success: function (data1) { 

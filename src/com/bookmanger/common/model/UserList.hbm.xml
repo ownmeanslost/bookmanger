@@ -5,7 +5,7 @@
 	<class name="com.bookmanger.common.model.UserList" table="user_list">
 		<id name="user_id" type="string">
 			<column name="user_id" />
-			<generator class="native" />
+			<generator class="assigned" />
 		</id>
 		<property name="borrow_num" type="int" length="4" >
 				<column name="borrow_num" >

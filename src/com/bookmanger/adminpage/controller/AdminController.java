@@ -235,8 +235,10 @@ public class AdminController {
 	@ResponseBody
 	public String delBook(String ISDN) {
 		Book book = adminPageBookService.get(ISDN);
+		Borrow_lab bolab=adminPageBorrow_labService.get(ISDN);
 		if (book != null) {
 			adminPageBookService.delete(book);
+			adminPageBorrow_labService.delete(bolab);
 			return "1";
 		} else {
 			return "0";

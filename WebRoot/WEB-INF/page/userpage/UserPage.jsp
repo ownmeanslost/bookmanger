@@ -44,7 +44,7 @@
 		</form>
 		<div class="col-xs-3">
 			<ul class="list-group">
-				<li class="active list-group-item" id="userInfo">个人信息修改</li>
+				<li class="active list-group-item" id="userInfo">查询个人信息</li>
 				<li class="list-group-item" id="updatePassword">修改密码</li>
 				<li class="list-group-item" id="haveBorrow">已借阅图书</li>
 				<li class="list-group-item" id="newsCenter">消息中心</li>

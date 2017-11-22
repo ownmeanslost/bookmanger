@@ -72,11 +72,16 @@
 
 			var res = data.response;
 			if (res) {
-				alert("成功录入");
+				var result=confirm("成功录入");
+				
+				
+				
 			} else {
 				alert('上传失败');
 			}
+			$("#bookRegister-form").reset();	
 		});
+		
 	};
 
 	// 重置

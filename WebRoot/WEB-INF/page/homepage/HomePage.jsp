@@ -170,7 +170,7 @@
 		<!-- 其他 ||图书查询-->
 		<div class="col-xs-14">
 			<iframe src="HomePageTiaoZhuan/Other" id="iframepage" frameborder="0"
-				scrolling="no" marginheight="0" marginwidth="0" class="col-xs-9"></iframe>
+				scrolling="auto" marginheight="0" marginwidth="0" class="col-xs-9"></iframe>
 		</div>
 		<!-- 其他 ||图书查询-->
 

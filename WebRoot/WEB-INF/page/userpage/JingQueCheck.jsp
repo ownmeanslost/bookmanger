@@ -85,7 +85,8 @@
 			<div class="form-group">
 				<label class="col-xs-2 control-label">简介</label>
 				<div class="col-xs-8">
-					<textarea class="form-control" rows="3" id="intruduce" readonly="readonly"></textarea>
+				<div id="intruduce"></div>
+					<!-- <textarea class="form-control" rows="3" id="intruduce" readonly="readonly"></textarea> -->
 				</div>
 
 			</div>

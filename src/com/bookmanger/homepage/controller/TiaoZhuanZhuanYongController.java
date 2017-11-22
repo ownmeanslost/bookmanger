@@ -20,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.bookmanger.common.model.Book;
 import com.bookmanger.common.model.Bulletin;
 import com.bookmanger.common.model.News;
+import com.bookmanger.common.model.UserList;
 import com.bookmanger.common.utils.CompareExpression;
 import com.bookmanger.common.utils.MakeCertPic;
 import com.bookmanger.common.utils.PaginationResponse;
@@ -27,6 +28,7 @@ import com.bookmanger.common.utils.QueryCondition;
 import com.bookmanger.homepage.service.AdministerService;
 import com.bookmanger.homepage.service.BookService;
 import com.bookmanger.homepage.service.BulletinService;
+import com.bookmanger.homepage.service.HomePageUserListService;
 import com.bookmanger.homepage.service.NewsService;
 import com.bookmanger.homepage.service.UserService;
 import com.bookmanger.homepage.vo.BookVO;
@@ -50,6 +52,9 @@ public class TiaoZhuanZhuanYongController {
 	NewsService newsService;
 	@Autowired
 	AdministerService administerService;
+	
+	@Autowired
+	HomePageUserListService homePageUserListService;
 
 	@RequestMapping(value = "/Other")
 	public String goToOther() {
@@ -123,6 +128,10 @@ public class TiaoZhuanZhuanYongController {
 	public String zhuCe(UserVO user) {
 		try {
 			userService.addUser(user);
+			UserList ul=new UserList();
+			ul.setBorrow_num(0);
+			ul.setUser_id(user.getUser_id());
+			homePageUserListService.save(ul);
 			return "1";
 		} catch (Exception e) {
 			e.printStackTrace();
