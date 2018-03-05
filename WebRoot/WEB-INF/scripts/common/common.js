@@ -16,4 +16,6 @@
 	document.write('<script type="text/javascript" src="scripts/bootstrap/js/jquery.bootstrap.newsbox.min.js"></script>');
 	document.write('<script type="text/javascript" src="scripts/bootstrap/js/bootstrap-paginator.min.js"></script>');
 	document.write('<script type="text/javascript" src="scripts/jQuerySession.js"></script>');
+	document.write('<script type="text/javascript" src="scripts/bootstrap/js/velocity.min.js"></script>');
+	document.write('<script type="text/javascript" src="scripts/bootstrap/js/velocity.ui.min.js"></script>');
 })();

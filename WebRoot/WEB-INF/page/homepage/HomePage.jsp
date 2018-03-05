@@ -95,7 +95,7 @@
 
 		<!-- 注册框（Modal） -->
 		<div class="modal fade" id="zhuCeModal" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel" aria-hidden="true">
+			aria-labelledby="myModalLabel" aria-hidden="true" data-easein="perspectiveLeftIn">
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
@@ -176,7 +176,7 @@
 
 		<!-- 读者须知框（Modal） -->
 		<div class="modal fade" id="readerModal" tabindex="-1" role="dialog"
-			aria-labelledby="myModalLabel" aria-hidden="true">
+			aria-labelledby="myModalLabel" aria-hidden="true" data-easein="tada">
 			<div class="modal-dialog">
 				<div class="modal-content"></div>
 				<!-- /.modal-content -->
@@ -192,6 +192,31 @@
 			var iframe = document.getElementById("iframepage");
 			iframe.style.height = window.innerHeight + 'px';
 		};
+	</script>
+	<!--  	// add the animation to the modal-->
+	<script type="text/javascript">
+
+	$(".modal").each(function(index) {
+	  $(this).on('show.bs.modal', function(e) {
+	    var open = $(this).attr('data-easein');
+	    if (open == 'shake') {
+	      $('.modal-dialog').velocity('callout.' + open);
+	    } else if (open == 'pulse') {
+	      $('.modal-dialog').velocity('callout.' + open);
+	    } else if (open == 'tada') {
+	      $('.modal-dialog').velocity('callout.' + open);
+	    } else if (open == 'flash') {
+	      $('.modal-dialog').velocity('callout.' + open);
+	    } else if (open == 'bounce') {
+	      $('.modal-dialog').velocity('callout.' + open);
+	    } else if (open == 'swing') {
+	      $('.modal-dialog').velocity('callout.' + open);
+	    } else {
+	      $('.modal-dialog').velocity('transition.' + open);
+	    }
+
+	  });
+	});
 	</script>
 	<script type="text/javascript" src="page/homepage/HomePage.js"></script>
 
