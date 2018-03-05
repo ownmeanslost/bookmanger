@@ -31,7 +31,7 @@
 		<div class="col-xs-14" style="text-align:center;">管理员主界面</div>
 		<form class="form-horizontal" role="form" >
 		<div class="form-group">
-			<label class="col-xs-2 control-label" >用户名：</label>
+			<label class="col-xs-1 control-label" >用户名：</label>
 			<div class="col-xs-1">
 				<input type="text" id="userName" class="form-control"
 					name="userName" disabled="disabled">
