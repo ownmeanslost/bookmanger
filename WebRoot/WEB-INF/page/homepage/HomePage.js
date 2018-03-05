@@ -4,6 +4,7 @@
 		events.initImg();
 		events.login();
 		events.yanZhengMaClick();
+		
 	};
 	// 读者须知
 	$("#readerKnow").click(function() {
@@ -18,6 +19,13 @@
 				var ifram1 = $("#iframepage").attr("src",
 						"HomePageTiaoZhuan/CheckBook");
 			});
+	
+	$("#otherClick").click(
+				function(){
+					var ifram1=$("#iframepage").attr("src","HomePageTiaoZhuan/Other");
+				}
+	
+	);
 	// 重置
 	$("#reset1").click(function() {
 		$("#register-form").data('bootstrapValidator').resetForm();
@@ -209,6 +217,7 @@
 		});
 	};
 	// 登录点击事件
+	
 	
 	$(events.init);
 })(jQuery);

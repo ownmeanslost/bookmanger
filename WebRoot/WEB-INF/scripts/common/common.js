@@ -18,4 +18,7 @@
 	document.write('<script type="text/javascript" src="scripts/jQuerySession.js"></script>');
 	document.write('<script type="text/javascript" src="scripts/bootstrap/js/velocity.min.js"></script>');
 	document.write('<script type="text/javascript" src="scripts/bootstrap/js/velocity.ui.min.js"></script>');
+	/*document.write('<script type="text/javascript">var wwww = $(window).width(), hhhh = $(window).height();$("body").css({ "width":wwww, "height":hhhh, "overflow":"hidden"});Resize = function(){  wwww = $(window).width(); if(wwww<=1000){  $("body").css({   "overflow":"auto"}); } }; </script>');*/
+	document.write('<script type="text/javascript" src="scripts/screen.js"></script>');
+
 })();

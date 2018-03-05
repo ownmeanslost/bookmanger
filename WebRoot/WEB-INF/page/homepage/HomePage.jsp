@@ -39,7 +39,7 @@
 </script>
 </head>
 
-<body>
+<body onResize="Resize()" >
 
 	<div class="container-fluid">
 		<div class="col-xs-14" style="text-align:center;">图书管理</div>
@@ -81,16 +81,23 @@
 						data-toggle="modal" data-target="#zhuCeModal" id="zhuCe">
 				</div>
 			</form>
-
-
+			
+			<div class="row" style="text-align:center;">
+				<input type="button" value="others" id="otherClick"
+					class="btn btn-primary">
+			</div>
+	<br/>
 			<div class="row" style="text-align:center;">
 				<input id="checkBook" type="button" value="图书查询"
 					class="btn btn-primary">
 			</div>
+			<br/>
 			<div class="row" style="text-align:center;">
 				<input type="button" value="读者须知" id="readerKnow"
 					class="btn btn-primary">
 			</div>
+		
+			
 		</div>
 
 		<!-- 注册框（Modal） -->
@@ -151,8 +158,8 @@
 										id="userSecPassword" name="userSecPassword">
 								</div>
 							</div>
-							<input type="submit" value="注册" id="ZhuCeFinish"> <input
-								type="reset" value="重置" id="reset1">
+							<input type="submit" value="注册" id="ZhuCeFinish" class="btn btn-primary"> <input
+								type="reset" value="重置" id="reset1" class="btn btn-primary">
 						</form>
 					</div>
 					<div class="modal-footer">
@@ -192,6 +199,7 @@
 			var iframe = document.getElementById("iframepage");
 			iframe.style.height = window.innerHeight + 'px';
 		};
+		
 	</script>
 	<!--  	// add the animation to the modal-->
 	<script type="text/javascript">
@@ -218,6 +226,7 @@
 	  });
 	});
 	</script>
+	
 	<script type="text/javascript" src="page/homepage/HomePage.js"></script>
 
 

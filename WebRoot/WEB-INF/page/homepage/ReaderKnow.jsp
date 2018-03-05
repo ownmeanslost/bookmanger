@@ -37,6 +37,7 @@
 		</button>
 
 	</div>
+	<!-- <script type="text/javascript" src="script/screen.js"></script> -->
 	<script type="text/javascript" src="page/homepage/ReaderKnow.js"></script>
 </body>
 </html>
